@@ -28,9 +28,9 @@ provider "google" {
 # AWS Resource #
 resource "aws_instance" "demo_server" {
   ami           = "ami-02e136e904f3da870"
-  instance_type = "t2.nano"
+  instance_type = "t2.medium"
   tags = {
-    Name = "Demo-TFC2"
+    Name = "Demo-TFC3"
   }
 }
 
