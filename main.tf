@@ -30,13 +30,13 @@ resource "aws_instance" "demo_server" {
   ami           = "ami-02e136e904f3da870"
   instance_type = "t2.nano"
   tags = {
-    Name = "Demo-TFC"
+    Name = "Demo-TFC2"
   }
 }
 
 # GCP Resource #
 resource "google_compute_network" "vpc_network" {
-  name = "terraform-network"
+  name = "terraform-network2"
 }
 
 resource "google_compute_instance" "vm_instance" {
