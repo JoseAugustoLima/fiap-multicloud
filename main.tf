@@ -28,7 +28,7 @@ provider "google" {
 # AWS Resource #
 resource "aws_instance" "demo_server" {
   ami           = "ami-02e136e904f3da870"
-  instance_type = "t2.nano"
+  instance_type = "t2.medium"
   tags = {
     Name = "Demo-TFC"
   }
@@ -40,7 +40,7 @@ resource "google_compute_network" "vpc_network" {
 }
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "terraform-instance"
+  name         = "Demo-TFC"
   machine_type = "e2-micro"
   zone         = "us-central1-a"
 
