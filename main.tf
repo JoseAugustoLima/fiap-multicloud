@@ -40,7 +40,7 @@ resource "google_compute_network" "vpc_network" {
 }
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "Demo-TFC"
+  name         = "demo-tfc"
   machine_type = "e2-micro"
   zone         = "us-central1-a"
 
