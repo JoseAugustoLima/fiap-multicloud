@@ -3,26 +3,21 @@ variable "aws_region" { default = "us-east-1" }
 variable "suffix" { default = "demo-01" }
 
 terraform {
-
   required_version = ">= 0.14.9"
-
   required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.27"
-    }
-
-    google = {
-      source  = "hashicorp/google"
-      version = "4.51.0"
-    }
+    aws    = { source = "hashicorp/aws", version = "~> 3.27" }
+    google = { source = "hashicorp/google", version = "4.51.0" }
   }
-
-  provider "google" {
-    project = "solid-solstice-312901"
-    region  = "us-central1"
 }
 
+# --- Provedores ---
+provider "aws" {
+  region  = "us-east-1"
+}
+
+provider "google" {
+  project = "solid-solstice-312901"
+  region  = "us-central1"
 }
 
 # --- 2. INFRAESTRUTURA AWS (Lado Destino) ---
