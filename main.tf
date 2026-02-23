@@ -4,8 +4,22 @@ variable "gcp_project_id" { type = string }
 variable "gcp_region" { default = "us-central1" }
 variable "suffix" { default = "demo-01" }
 
-provider "aws" { region = var.aws_region }
-provider "google" { project = var.gcp_project_id; region = var.gcp_region }
+terraform {
+
+  required_version = ">= 0.14.9"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.27"
+    }
+
+    google = {
+      source  = "hashicorp/google"
+      version = "4.51.0"
+    }
+  }
+
 
 # --- 2. INFRAESTRUTURA AWS (Lado Destino) ---
 
