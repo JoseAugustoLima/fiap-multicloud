@@ -20,6 +20,7 @@ terraform {
     }
   }
 
+}
 
 # --- 2. INFRAESTRUTURA AWS (Lado Destino) ---
 
