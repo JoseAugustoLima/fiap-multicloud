@@ -19,7 +19,6 @@ terraform {
       version = "4.51.0"
     }
   }
-
 }
 
 # --- 2. INFRAESTRUTURA AWS (Lado Destino) ---
