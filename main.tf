@@ -96,7 +96,6 @@ resource "google_compute_subnetwork" "gcp_sub" {
   network       = google_compute_network.gcp_vpc.id
 }
 
-# DNS PRIVADO: O "Pulo do Gato" para a VM achar o S3 via IP Privado
 resource "google_dns_managed_zone" "s3_private_zone" {
   name        = "s3-aws-zone"
   dns_name    = "amazonaws.com."
@@ -115,7 +114,7 @@ resource "google_dns_record_set" "s3_endpoint_record" {
 }
 
 # VM COM STARTUP SCRIPT PARA TESTE AUTOMATIZADO
-resource "google_compute_instance" "vm_client" {
+resource "google_compute_instance" "vm_instance" {
   name         = "gcp-vm-analyst"
   machine_type = "e2-micro"
   zone         = "${var.gcp_region}-a"
