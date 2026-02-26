@@ -1,4 +1,14 @@
 # --- 1. VARIÁVEIS E PROVEDORES ---
+variable "suffix" {
+  type    = string
+  default = "demo-01"
+}
+
+variable "aws_region" {
+  type    = string
+  default = "us-east-1"
+}
+
 terraform {
 
   required_version = ">= 0.14.9"
