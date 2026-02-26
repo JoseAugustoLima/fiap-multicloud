@@ -1,6 +1,11 @@
 # --- 1. VARIÁVEIS E PROVEDORES ---
 variable "aws_region" { default = "us-east-1" }
 variable "suffix" { default = "demo-01" }
+variable "gcp_project_id" { type = string }
+variable "gcp_region" { 
+  type        = string
+  default     = "us-central1"
+}
 
 terraform {
   required_version = ">= 0.14.9"
@@ -16,8 +21,8 @@ provider "aws" {
 }
 
 provider "google" {
-  project = "solid-solstice-312901"
-  region  = "us-central1"
+  project = var.gcp_project_id
+  region  = var.gcp_region
 }
 
 # --- 2. INFRAESTRUTURA AWS (Lado Destino) ---
