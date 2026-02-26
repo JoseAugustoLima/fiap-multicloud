@@ -26,24 +26,6 @@ provider "google" {
   project = "solid-solstice-312901"
 }
 
-# --- 2. CONFIGURAÇÃO E PROVEDORES ---
-terraform {
-  required_version = ">= 0.14.9"
-  required_providers {
-    aws    = { source = "hashicorp/aws", version = "~> 3.27" }
-    google = { source = "hashicorp/google", version = "4.51.0" }
-  }
-}
-
-provider "aws" {
-  region = var.aws_region
-}
-
-provider "google" {
-  project = var.gcp_project_id # Aqui o Terraform busca o valor da variável
-  region  = var.gcp_region
-}
-
 # --- 2. INFRAESTRUTURA AWS (Lado Destino) ---
 
 resource "aws_vpc" "aws_vpc" {
