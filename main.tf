@@ -105,12 +105,17 @@ resource "google_dns_managed_zone" "s3_private_zone" {
   }
 }
 
+# Busca os detalhes da interface de rede (ENI) criada pelo Endpoint
+data "aws_network_interface" "s3_eni" {
+  id = tolist(aws_vpc_endpoint.s3_interface.network_interface_ids)[0]
+}
+
 resource "google_dns_record_set" "s3_endpoint_record" {
   name         = "s3.${var.aws_region}.amazonaws.com."
   managed_zone = google_dns_managed_zone.s3_private_zone.name
   type         = "A"
   ttl          = 300
-  rrdatas      = [aws_vpc_endpoint.s3_interface.dns_entry[0].ip_address]
+  rrdatas      = [data.aws_network_interface.s3_eni.private_ip]
 }
 
 # VM COM STARTUP SCRIPT PARA TESTE AUTOMATIZADO
