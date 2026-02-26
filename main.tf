@@ -11,7 +11,7 @@ variable "aws_region" {
 
 variable "gcp_project_id" {
   type        = string
-  description = "solid-solstice-312901"
+  default = "solid-solstice-312901"
 }
 
 variable "gcp_region" {
