@@ -1,12 +1,25 @@
 # --- 1. VARIÁVEIS E PROVEDORES ---
-variable "aws_region" { default = "us-east-1" }
-variable "suffix" { default = "demo-01" }
-variable "gcp_project_id" { type = string }
-variable "gcp_region" { 
+variable "gcp_project_id" {
   type        = string
-  default     = "us-central1"
+  description = "ID do Projeto GCP"
 }
 
+variable "gcp_region" {
+  type    = string
+  default = "us-central1"
+}
+
+variable "aws_region" {
+  type    = string
+  default = "us-east-1"
+}
+
+variable "suffix" {
+  type    = string
+  default = "demo-01"
+}
+
+# --- 2. CONFIGURAÇÃO E PROVEDORES ---
 terraform {
   required_version = ">= 0.14.9"
   required_providers {
@@ -15,13 +28,12 @@ terraform {
   }
 }
 
-# --- Provedores ---
 provider "aws" {
-  region  = "us-east-1"
+  region = var.aws_region
 }
 
 provider "google" {
-  project = var.gcp_project_id
+  project = var.gcp_project_id # Aqui o Terraform busca o valor da variável
   region  = var.gcp_region
 }
 
