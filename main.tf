@@ -11,7 +11,7 @@ variable "aws_region" {
 
 variable "gcp_project_id" {
   type        = string
-  description = "ID do Projeto GCP"
+  description = "solid-solstice-312901"
 }
 
 variable "gcp_region" {
@@ -43,7 +43,7 @@ provider "aws" {
 }
 
 provider "google" {
-  project = "solid-solstice-312901"
+  project = var.gcp_project_id
 }
 
 # --- 2. INFRAESTRUTURA AWS (Lado Destino) ---
