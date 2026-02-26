@@ -9,6 +9,15 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
+variable "gcp_project_id" {
+  type        = string
+}
+
+variable "gcp_region" {
+  type    = string
+  default = "us-central1"
+}
+
 terraform {
 
   required_version = ">= 0.14.9"
