@@ -1,22 +1,29 @@
 # --- 1. VARIÁVEIS E PROVEDORES ---
-variable "gcp_project_id" {
-  type        = string
-  description = "ID do Projeto GCP"
+terraform {
+
+  required_version = ">= 0.14.9"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.27"
+    }
+
+    google = {
+      source  = "hashicorp/google"
+      version = "4.51.0"
+    }
+  }
+
 }
 
-variable "gcp_region" {
-  type    = string
-  default = "us-central1"
+provider "aws" {
+  profile = "default"
+  region  = "us-east-1"
 }
 
-variable "aws_region" {
-  type    = string
-  default = "us-east-1"
-}
-
-variable "suffix" {
-  type    = string
-  default = "demo-01"
+provider "google" {
+  project = "solid-solstice-312901"
 }
 
 # --- 2. CONFIGURAÇÃO E PROVEDORES ---
