@@ -94,6 +94,7 @@ resource "google_compute_subnetwork" "gcp_sub" {
   name          = "gcp-sub-latam"
   ip_cidr_range = "192.168.1.0/24"
   network       = google_compute_network.gcp_vpc.id
+  region        = var.gcp_region
 }
 
 resource "google_dns_managed_zone" "s3_private_zone" {
