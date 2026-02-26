@@ -11,6 +11,7 @@ variable "aws_region" {
 
 variable "gcp_project_id" {
   type        = string
+  description = "ID do Projeto GCP"
 }
 
 variable "gcp_region" {
