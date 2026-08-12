@@ -41,8 +41,8 @@ resource "google_compute_network" "vpc_network" {
 
 resource "google_compute_instance" "vm_instance" {
   name         = "demo-tfc"
-  machine_type = "e2-small"
-  zone         = "us-central1-b"
+  machine_type = "e2-micro"
+  zone         = "us-west1-b"
 
   boot_disk {
     initialize_params {
